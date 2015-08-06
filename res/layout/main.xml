@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    
+    <TextView
+        android:id="@+id/firstScreenTitleTXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingBottom="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:text="Your Basic Details"/>
+    
+    <TextView
+        android:id="@+id/monthlySalaryTXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_below="@id/firstScreenTitleTXT"
+        android:layout_alignParentLeft="true"
+        android:textSize="20sp"
+        android:text="Monthly salary: "/>
+    
+    <EditText
+        android:id="@+id/monthlySalaryEDT"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_below="@id/firstScreenTitleTXT"
+        android:layout_toEndOf="@id/monthlySalaryTXT"
+        android:layout_alignBaseline="@id/monthlySalaryTXT"
+        android:inputType="numberDecimal"
+        android:maxLength="15"
+        android:textSize="20sp"
+        android:hint="*Required field"/>
+    
+    <TextView
+        android:id="@+id/civilStatusTXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_below="@id/monthlySalaryEDT"
+        android:layout_alignParentLeft="true"
+        android:textSize="20sp"
+        android:text="Civil status: "/>
+    
+    <Spinner
+        android:id="@+id/civilStatusSPN"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_below="@id/monthlySalaryEDT"
+        android:layout_toEndOf="@id/civilStatusTXT"
+        android:layout_alignBaseline="@id/civilStatusTXT"
+        android:textSize="20sp"/>
+    
+    <Button
+        android:id="@+id/next1BTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:layout_below="@id/civilStatusSPN"
+        android:layout_alignParentEnd="true"
+        android:textSize="20sp"
+        android:text="Next"
+        android:onClick="setOTScreen"/>
+    
+</RelativeLayout>
+

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    
+    <!-- This is for the title of screen -->
+    <TextView
+        android:id="@+id/allowanceScreenTitleTXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingBottom="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:text="Your Allowance Details"/>
+    
+    <!-- This sets up the late shift fields -->
+    <TextView
+        android:id="@+id/lateShiftTXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_below="@id/allowanceScreenTitleTXT"
+        android:layout_alignParentLeft="true"
+        android:textSize="20sp"
+        android:text="Late shift: "/>
+    <EditText
+        android:id="@+id/lateShiftEDT"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_below="@id/allowanceScreenTitleTXT"
+        android:layout_toEndOf="@id/lateShiftTXT"
+        android:layout_alignBaseline="@id/lateShiftTXT"
+        android:inputType="numberDecimal"
+        android:maxLength="15"
+        android:textSize="20sp"/>
+    
+    <!-- This sets up the holiday allowance -->
+    <TextView
+        android:id="@+id/holidayAllowanceTXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_below="@id/lateShiftEDT"
+        android:layout_alignParentLeft="true"
+        android:textSize="20sp"
+        android:text="Holiday: "/>
+    <EditText
+        android:id="@+id/holidayAllowanceEDT"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_below="@id/lateShiftEDT"
+        android:layout_toEndOf="@id/holidayAllowanceTXT"
+        android:layout_alignBaseline="@id/holidayAllowanceTXT"
+        android:inputType="numberDecimal"
+        android:maxLength="15"
+        android:textSize="20sp"/>
+    
+    <!-- This sets up the other non-tax allowance -->
+    <TextView
+        android:id="@+id/otherAllowanceTXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_below="@id/holidayAllowanceEDT"
+        android:layout_alignParentLeft="true"
+        android:textSize="20sp"
+        android:text="Other non-tax: "/>
+    <EditText
+        android:id="@+id/otherAllowanceEDT"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_below="@id/holidayAllowanceEDT"
+        android:layout_toEndOf="@id/otherAllowanceTXT"
+        android:layout_alignBaseline="@id/otherAllowanceTXT"
+        android:inputType="numberDecimal"
+        android:maxLength="15"
+        android:textSize="20sp"/>
+    
+    <!-- This sets up the next button -->
+    <Button
+        android:id="@+id/next2BTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:layout_below="@id/otherAllowanceEDT"
+        android:layout_alignParentEnd="true"
+        android:textSize="20sp"
+        android:text="Calculate"
+        android:onClick="calculateSalary"/>
+    
+    <!-- This sets up the back button -->
+    <Button
+        android:id="@+id/back2BTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:layout_below="@id/otherAllowanceEDT"
+        android:layout_alignParentStart="true"
+        android:textSize="20sp"
+        android:text="Back"
+        android:onClick="setOTScreen"/>
+    
+    
+</RelativeLayout>
