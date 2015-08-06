@@ -1,3 +1,9 @@
+/*
+
+
+
+
+*/
 package com.ediasnes.mysalarycalculator;
 
 import android.app.Activity;
