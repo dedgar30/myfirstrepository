@@ -193,6 +193,6 @@ public class MainActivity extends Activity
     }
     
     public void calculateSalary(){
-        setContentView(R.layout.salarysummary);
+        //setContentView(R.layout.salarysummary);
     }
 }
