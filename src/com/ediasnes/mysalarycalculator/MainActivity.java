@@ -192,7 +192,9 @@ public class MainActivity extends Activity
         
     }
     
-    public void calculateSalary(){
+    public void calculateSalary(View v){
+        Toast.makeText(this, "You pressed Calculate!", Toast.LENGTH_SHORT).show();
+        
         setContentView(R.layout.salarysummary);
     }
 }
