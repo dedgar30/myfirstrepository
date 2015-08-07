@@ -5,74 +5,41 @@
     
     <TextView
         android:id="@+id/firstScreenTitleTXT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="15dp"
-        android:paddingBottom="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:textStyle="bold"
-        android:textSize="25sp"
+        style="@style/titleView"
         android:text="Your Basic Details"/>
     
     <TextView
         android:id="@+id/monthlySalaryTXT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        style="@style/textview"
         android:layout_below="@id/firstScreenTitleTXT"
-        android:layout_alignParentLeft="true"
-        android:textSize="20sp"
         android:text="Monthly salary: "/>
     
     <EditText
         android:id="@+id/monthlySalaryEDT"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        style="@style/spinner.edittext"
         android:layout_below="@id/firstScreenTitleTXT"
         android:layout_toEndOf="@id/monthlySalaryTXT"
         android:layout_alignBaseline="@id/monthlySalaryTXT"
-        android:inputType="numberDecimal"
-        android:maxLength="15"
-        android:textSize="20sp"
         android:hint="*Required field"/>
     
     <TextView
         android:id="@+id/civilStatusTXT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        style="@style/textview"
         android:layout_below="@id/monthlySalaryEDT"
-        android:layout_alignParentLeft="true"
-        android:textSize="20sp"
         android:text="Civil status: "/>
     
     <Spinner
         android:id="@+id/civilStatusSPN"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        style="@style/spinner"
         android:layout_below="@id/monthlySalaryEDT"
         android:layout_toEndOf="@id/civilStatusTXT"
-        android:layout_alignBaseline="@id/civilStatusTXT"
-        android:textSize="20sp"/>
+        android:layout_alignBaseline="@id/civilStatusTXT"/>
     
     <Button
         android:id="@+id/next1BTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
+        style="@style/button"
         android:layout_below="@id/civilStatusSPN"
-        android:layout_alignParentEnd="true"
-        android:textSize="20sp"
+        android:layout_alignParentRight="true"
         android:text="Next"
         android:onClick="setOTScreen"/>
     

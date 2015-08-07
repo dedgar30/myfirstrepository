@@ -6,139 +6,76 @@
     <!-- This is for the title of screen -->
     <TextView
         android:id="@+id/OTScreenTitleTXT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="15dp"
-        android:paddingBottom="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:textStyle="bold"
-        android:textSize="25sp"
+        style="@style/titleView"
         android:text="Your Overtime Details"/>
     
     <!-- This sets up the night diff fields -->
     <TextView
         android:id="@+id/nightDiffTXT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        style="@style/textview"
         android:layout_below="@id/OTScreenTitleTXT"
-        android:layout_alignParentLeft="true"
-        android:textSize="20sp"
         android:text="Night Diff.: "/>
     <EditText
         android:id="@+id/nightDiffEDT"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        style="@style/spinner.edittext"
         android:layout_below="@id/OTScreenTitleTXT"
         android:layout_toEndOf="@id/nightDiffTXT"
-        android:layout_alignBaseline="@id/nightDiffTXT"
-        android:inputType="numberDecimal"
-        android:maxLength="15"
-        android:textSize="20sp"/>
+        android:layout_alignBaseline="@id/nightDiffTXT"/>
     
     <!-- This sets up the regular overtime -->
     <TextView
         android:id="@+id/regOTTXT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        style="@style/textview"
         android:layout_below="@id/nightDiffEDT"
-        android:layout_alignParentLeft="true"
-        android:textSize="20sp"
         android:text="Regular OT: "/>
     <EditText
         android:id="@+id/regOTEDT"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        style="@style/spinner.edittext"
         android:layout_below="@id/nightDiffEDT"
         android:layout_toEndOf="@id/regOTTXT"
-        android:layout_alignBaseline="@id/regOTTXT"
-        android:inputType="numberDecimal"
-        android:maxLength="15"
-        android:textSize="20sp"/>
+        android:layout_alignBaseline="@id/regOTTXT"/>
     
     <!-- This sets up the Special Holiday overtime -->
     <TextView
         android:id="@+id/specialHolOTTXT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        style="@style/textview"
         android:layout_below="@id/regOTEDT"
-        android:layout_alignParentLeft="true"
-        android:textSize="20sp"
         android:text="Special hol. OT: "/>
     <EditText
         android:id="@+id/specialHolOTEDT"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        style="@style/spinner.edittext"
         android:layout_below="@id/regOTEDT"
         android:layout_toEndOf="@id/specialHolOTTXT"
-        android:layout_alignBaseline="@id/specialHolOTTXT"
-        android:inputType="numberDecimal"
-        android:maxLength="15"
-        android:textSize="20sp"/>
+        android:layout_alignBaseline="@id/specialHolOTTXT"/>
     
     <!-- This sets up the Regular Holiday overtime -->
     <TextView
         android:id="@+id/regularHolOTTXT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        style="@style/textview"
         android:layout_below="@id/specialHolOTEDT"
-        android:layout_alignParentLeft="true"
-        android:textSize="20sp"
         android:text="Reg holiday OT: "/>
     <EditText
         android:id="@+id/regularHolOTEDT"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        style="@style/spinner.edittext"
         android:layout_below="@id/specialHolOTEDT"
         android:layout_toEndOf="@id/regularHolOTTXT"
-        android:layout_alignBaseline="@id/regularHolOTTXT"
-        android:inputType="numberDecimal"
-        android:maxLength="15"
-        android:textSize="20sp"/>
+        android:layout_alignBaseline="@id/regularHolOTTXT"/>
     
     <!-- This sets up the next button -->
     <Button
         android:id="@+id/next2BTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
+        style="@style/button"
         android:layout_below="@id/regularHolOTEDT"
-        android:layout_alignParentEnd="true"
-        android:textSize="20sp"
+        android:layout_alignParentRight="true"
         android:text="Next"
         android:onClick="setAllowanceScreen"/>
     
     <!-- This sets up the back button -->
     <Button
         android:id="@+id/back1BTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
+        style="@style/button"
         android:layout_below="@id/regularHolOTEDT"
-        android:layout_alignParentStart="true"
-        android:textSize="20sp"
+        android:layout_alignParentLeft="true"
         android:text="Back"
         android:onClick="setBasicScreen"/>
     
