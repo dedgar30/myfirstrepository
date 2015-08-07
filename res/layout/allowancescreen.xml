@@ -101,7 +101,7 @@
         android:layout_alignParentEnd="true"
         android:textSize="20sp"
         android:text="Calculate"
-        <!--android:onClick="calculateSalary"-->/>
+        />
     
     <!-- This sets up the back button -->
     <Button
