@@ -45,8 +45,7 @@ public class Salary{
         this.resetVariables();
         
     }
-    
-    private void resetVariables(){
+    public void resetVariables(){
         monthlySalary = 0;
         civilStatus = "";
         nightDiff = 0;
@@ -57,10 +56,17 @@ public class Salary{
         holidayAllow = 0;
         otherNonTaxAllow = 0;
         
+        this.resetPrivateVariables();
+    }
+    
+    public void resetPrivateVariables(){
         deductions = 0;
         SalaryLessDeductions = 0;
         AdditionalTaxableIncome = 0;
         TotalTaxableIncome = 0;
+        WithHoldingTax = 0;
+        SalaryLessTax = 0;
+        NonTaxIncome = 0;
     }
     
     public double getSSS(){
@@ -119,7 +125,7 @@ public class Salary{
     }
     
     public double getAdditionalTaxableIncome(){
-        double perDayPay = monthlySalary/21.125;
+        double perDayPay = monthlySalary/21.666749;
         
         //From nightDiff
         double nightDiffAmount = perDayPay * (nightDiff/8) * 0.3;
@@ -228,7 +234,7 @@ public class Salary{
         //From night shift allowance
         double nonTaxLateShiftAllow = (lateShiftAllow*113)/300;
         
-        NonTaxIncome = nonTaxLateShiftAllow+otherNonTaxAllow; 
+        NonTaxIncome = nonTaxLateShiftAllow + otherNonTaxAllow; 
         return NonTaxIncome;
     }
     

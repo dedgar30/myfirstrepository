@@ -12,6 +12,7 @@ import android.widget.*;
 import java.util.ArrayList;
 import java.util.List;
 import android.view.View;
+import java.text.DecimalFormat;
 
 public class MainActivity extends Activity
 {
@@ -19,6 +20,7 @@ public class MainActivity extends Activity
     Toast errmsg;
     Salary mySalary;
     Boolean appStarted;
+    DecimalFormat myFormat = new DecimalFormat("###########0.00");
         //Setup the basic screen varaibles
     EditText monthlySalary;
     Spinner civilStatus;
@@ -33,8 +35,6 @@ public class MainActivity extends Activity
     EditText lateShiftAllow;
     EditText holidayAllow;
     EditText otherNonTaxAllow;
-        //Setup the salary summary variables
-    
     
     
     /** Called when the activity is first created. */
@@ -56,16 +56,16 @@ public class MainActivity extends Activity
                 //Save value from overtime screen
                 if(!nightDiff.getText().toString().isEmpty()){
                     mySalary.nightDiff = Double.parseDouble(nightDiff.getText().toString());
-                }
+                } else mySalary.nightDiff = 0;
                 if(!regularOT.getText().toString().isEmpty()){
                     mySalary.regularOT = Double.parseDouble(regularOT.getText().toString());
-                }
+                } else mySalary.regularOT = 0;
                 if(!regularHolidayOT.getText().toString().isEmpty()){
                     mySalary.regularHolidayOT = Double.parseDouble(regularHolidayOT.getText().toString());
-                }
+                } else mySalary.regularHolidayOT = 0;
                 if(!specialHolidayOT.getText().toString().isEmpty()){
                     mySalary.specialHolidayOT = Double.parseDouble(specialHolidayOT.getText().toString());
-                }
+                } else mySalary.specialHolidayOT = 0;
             }
         }
         
@@ -119,13 +119,13 @@ public class MainActivity extends Activity
         if(v.getId()==R.id.back2BTN){
             if(!lateShiftAllow.getText().toString().isEmpty()){
                 mySalary.lateShiftAllow = Double.parseDouble(lateShiftAllow.getText().toString());
-            }
+            } else mySalary.lateShiftAllow = 0;
             if(!holidayAllow.getText().toString().isEmpty()){
                 mySalary.holidayAllow = Double.parseDouble(holidayAllow.getText().toString());
-            }
+            } else mySalary.holidayAllow = 0;
             if(!otherNonTaxAllow.getText().toString().isEmpty()){
                 mySalary.otherNonTaxAllow = Double.parseDouble(otherNonTaxAllow.getText().toString());
-            }
+            } else mySalary.otherNonTaxAllow = 0;
         }
         
         //Setup the overtime screen
@@ -159,16 +159,16 @@ public class MainActivity extends Activity
         if(v.getId()==R.id.next2BTN){
             if(!nightDiff.getText().toString().isEmpty()){
                 mySalary.nightDiff = Double.parseDouble(nightDiff.getText().toString());
-            }
+            } else mySalary.nightDiff = 0;
             if(!regularOT.getText().toString().isEmpty()){
                 mySalary.regularOT = Double.parseDouble(regularOT.getText().toString());
-            }
+            } else mySalary.regularOT = 0;
             if(!regularHolidayOT.getText().toString().isEmpty()){
                 mySalary.regularHolidayOT = Double.parseDouble(regularHolidayOT.getText().toString());
-            }
+            } else mySalary.regularHolidayOT = 0;
             if(!specialHolidayOT.getText().toString().isEmpty()){
                 mySalary.specialHolidayOT = Double.parseDouble(specialHolidayOT.getText().toString());
-            }
+            } else mySalary.specialHolidayOT = 0;
         }
         
         //Setup the allowance screen
@@ -192,4 +192,70 @@ public class MainActivity extends Activity
         
     }
     
+    public void calculateSalary(View v){
+        //Stores values from allowance screen
+        if(!lateShiftAllow.getText().toString().isEmpty()){
+            mySalary.lateShiftAllow = Double.parseDouble(lateShiftAllow.getText().toString());
+        } else mySalary.lateShiftAllow = 0;
+        if(!holidayAllow.getText().toString().isEmpty()){
+            mySalary.holidayAllow = Double.parseDouble(holidayAllow.getText().toString());
+        } else mySalary.holidayAllow = 0;
+        if(!otherNonTaxAllow.getText().toString().isEmpty()){
+            mySalary.otherNonTaxAllow = Double.parseDouble(otherNonTaxAllow.getText().toString());
+        } else mySalary.otherNonTaxAllow = 0;
+        
+        //Display salary summary
+        setContentView(R.layout.salarysummary);
+        String space = "    -";
+        mySalary.resetPrivateVariables();
+            //Display basic salary
+        TextView basicSalary = (TextView) findViewById(R.id.basicSalaryTXT);
+        basicSalary.setText(String.valueOf(myFormat.format(mySalary.monthlySalary)) + 
+                space + "Basic salary");
+            //Display SSS
+        TextView sss = (TextView) findViewById(R.id.SSSTXT);
+        sss.setText(space + String.valueOf(myFormat.format(mySalary.getSSS())) + space + "SSS");
+            //Display philHealth
+        TextView philHealth = (TextView) findViewById(R.id.philhealthTXT);
+        philHealth.setText(space + String.valueOf(myFormat.format(mySalary.getPhilHealth())) + 
+                space + "PhilHealth");
+            //Display pag-ibig
+        TextView pagibig = (TextView) findViewById(R.id.pagibigTXT);
+        pagibig.setText(space + String.valueOf(myFormat.format(mySalary.getPagIbig())) + 
+                space + "Pag-ibig");
+            //Display salary less deduction
+        TextView salaryLessDeduction = (TextView) findViewById(R.id.salaryLessDeductionTXT);
+        salaryLessDeduction.setText(String.valueOf(myFormat.format(mySalary.getSalaryLessDeductions())) + 
+                space + "Salary less deduction");
+            //Display other taxable income
+        TextView otherTaxIncome = (TextView) findViewById(R.id.otherTaxIncomeTXT);
+        otherTaxIncome.setText(space + String.valueOf(myFormat.format(mySalary.getAdditionalTaxableIncome())) + 
+                space + "Other taxable income");
+            //Display Total taxable income
+        TextView totalTaxIncome = (TextView) findViewById(R.id.totalTaxIncomeTXT);
+        totalTaxIncome.setText(String.valueOf(myFormat.format(mySalary.getTotalTaxableIncome())) + 
+                space + "Total taxable income");
+            //Display withholding tax
+        TextView withholdingTax = (TextView) findViewById(R.id.withHoldingTaxTXT);
+        withholdingTax.setText(space + String.valueOf(myFormat.format(mySalary.getWithHoldingTax())) + 
+                space + "Withholding tax");
+            //Display salary less tax
+        TextView salaryLessTax = (TextView) findViewById(R.id.salaryLessTaxTXT);
+        salaryLessTax.setText(String.valueOf(myFormat.format(mySalary.getSalaryLessTax())) + 
+                space + "Salary less tax");
+            //Display other nontax income
+        TextView nonTaxIncome = (TextView) findViewById(R.id.nonTaxIncomeTXT);
+        nonTaxIncome.setText(space + String.valueOf(myFormat.format(mySalary.getNonTaxIncome())) + 
+                space + "Non-tax income");
+            //Display net income
+        TextView netIncome = (TextView) findViewById(R.id.netIncomeTXT);
+        netIncome.setText(String.valueOf(myFormat.format(mySalary.getNetIncome())) + 
+                space + "Net income");
+        
+        
+    }
+    
+    public void restart(View v){
+        
+    }
 }
